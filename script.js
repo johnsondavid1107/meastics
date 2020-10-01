@@ -19,10 +19,7 @@ for (var i = 0; i < 1; i++) {
     alert("Invalid options.  Cannot generate password.  Please try again.");
     i--;
   }
-
-
 }
-
 var capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
 
 var lowerCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toLowerCase().split('');
@@ -55,7 +52,6 @@ function getPasswordAll() {
 }
 
 
-
 // End of all Functions ------------------------------------------
 //  All if and for Statements--------------------------------
 
@@ -69,8 +65,7 @@ for (var i = 0; i < 1; i++) {
 
   }
 }
-console.log(totalOptions);
-console.log(finalPassword);
+
 for (var i = 0; i < 1; i++) {
 
   if (lowerLetters == true) {
@@ -127,8 +122,6 @@ for (var i = 0; i < 1; i++) {
   
 }
 
-console.log(totalOptions);
-console.log(finalPassword);
 for (var i = finalPassword.length; i < length; i++) {
   finalPassword.push(totalOptions[Math.floor(Math.random() * totalOptions.length)]);
 
@@ -142,7 +135,8 @@ var newPassword = finalPassword.join("");
 
 
 //  CONFIRMING FOR DEVELOPERS PASSWORD GENERATES CORRECTLY ------
-
+console.log(totalOptions);
+console.log(finalPassword);
 // Write password to the #password input
 function writePassword() {
   var password = newPassword
