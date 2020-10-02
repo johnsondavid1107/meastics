@@ -2,18 +2,20 @@
 // All Variable----------------------------------
 var generateBtn = document.querySelector("#generate");
 
+alert("This page will automatically generate a password for you.  Please answer the next few questions to generate your personalized password.");
+
 for (var i = 0; i < 1; i++) {
+  
+  var upperLetters = confirm("Would you like UPPERCASE LETTERS for your self-generated password?");
 
-  var upperLetters = confirm("Would you like UPPERCASE LETTERS?");
+  var lowerLetters = confirm("Would you like to include lowercaseletters?");
 
-  var lowerLetters = confirm("Would you like lowercaseletters?");
+  var numbers1 = confirm("Would you like to include numbers?  867-5309?");
 
-  var numbers1 = confirm("Would you like numbers 867-5309?");
-
-  var specialText = confirm("Would you like Special Characters !@#$%?");
+  var specialText = confirm("Would you like to include Special Characters !@#$%?");
 
 
-  var length = prompt("How long would you like your passowrd to be?  Select between 8 and 12 characters long.");
+  var length = prompt("How long would you like your password to be?  Select a numerical value between 8 and 12 characters long.");
 
   if (upperLetters == false && lowerLetters == false && numbers1 == false && specialText == false) {
     alert("Invalid options.  Cannot generate password.  Please try again.");
@@ -26,6 +28,7 @@ for (var i = 0; i < 1; i++) {
   }
 
 }
+alert('Click on the "Generate Password" button below.');
 var capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
 
 var lowerCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toLowerCase().split('');
