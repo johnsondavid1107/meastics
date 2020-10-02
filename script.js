@@ -15,10 +15,16 @@ for (var i = 0; i < 1; i++) {
 
   var length = prompt("How long would you like your passowrd to be?  Select between 8 and 12 characters long.");
 
-  if (upperLetters == false && lowerLetters == false && numbers1 == false && specialText == false || length != 8 ||length != 9 ||length != 11 ||length != 12) {
+  if (upperLetters == false && lowerLetters == false && numbers1 == false && specialText == false) {
     alert("Invalid options.  Cannot generate password.  Please try again.");
     i--;
   }
+
+  if (length != 8 && length != 9 && length != 11 && length != 12){
+    alert("Invalid options.  Cannot generate password.  Please try again.");
+    i--;
+  }
+
 }
 var capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
 
@@ -119,7 +125,7 @@ for (var i = 0; i < 1; i++) {
     totalOptions.splice(10, 8);
 
   }
-  
+
 }
 
 for (var i = finalPassword.length; i < length; i++) {
