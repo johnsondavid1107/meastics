@@ -20,7 +20,7 @@ for (var i = 0; i < 1; i++) {
     i--;
   }
 
-  if (length != 8 && length != 9 && length != 11 && length != 12){
+  if (length != 8 && length != 9 && length != 10 && length != 11 && length != 12){
     alert("Invalid options.  Cannot generate password.  Please try again.");
     i--;
   }
