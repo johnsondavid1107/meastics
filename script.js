@@ -15,14 +15,14 @@ for (var i = 0; i < 1; i++) {
   var specialText = confirm("Would you like to include Special Characters !@#$%?");
 
 
-  var length = prompt("How long would you like your password to be?  Select a numerical value between 8 and 12 characters long.");
+  var length = prompt("How long would you like your password to be?  Select a numerical value between 8 and 128 characters long.");
 
   if (upperLetters == false && lowerLetters == false && numbers1 == false && specialText == false) {
     alert("Invalid options.  Cannot generate password.  Please try again.");
     i--;
   }
 
-  if (length != 8 && length != 9 && length != 10 && length != 11 && length != 12){
+  if (length < 8 || length > 128){
     alert("Invalid options.  Cannot generate password.  Please try again.");
     i--;
   }
@@ -60,7 +60,7 @@ function getPasswordAll() {
   finalPassword.push(totalOptions[Math.floor(Math.random() * totalOptions.length)]);
 }
 
-
+console.log(totalOptions);
 // End of all Functions ------------------------------------------
 //  All if and for Statements--------------------------------
 
@@ -126,6 +126,10 @@ for (var i = 0; i < 1; i++) {
   else if (upperLetters == false && lowerLetters == false && numbers1 == true && specialText == false) {
 
     totalOptions.splice(10, 8);
+ 
+  } else if (upperLetters == false && lowerLetters == true && numbers1 == true && specialText == false) {
+
+    totalOptions.splice(36, 8);
 
   }
 
