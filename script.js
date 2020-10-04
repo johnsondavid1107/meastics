@@ -5,7 +5,7 @@ var generateBtn = document.querySelector("#generate");
 alert("This page will automatically generate a password for you.  Please answer the next few questions to generate your personalized password.");
 
 for (var i = 0; i < 1; i++) {
-  
+
   var upperLetters = confirm("Would you like UPPERCASE LETTERS for your self-generated password?");
 
   var lowerLetters = confirm("Would you like to include lowercaseletters?");
@@ -22,7 +22,7 @@ for (var i = 0; i < 1; i++) {
     i--;
   }
 
-  if (length < 8 || length > 128){
+  if (length < 8 || length > 128) {
     alert("Invalid options.  Cannot generate password.  Please try again.");
     i--;
   }
@@ -38,111 +38,63 @@ var numbers = "0123456789".split('');
 var specialCharacters = "!@#$%^&*".split('');
 
 var finalPassword = [];
-var totalOptions = capitalLetters.concat(lowerCaseLetters, numbers, specialCharacters);
+
 
 // End of All Variables--------------------------------------
 
 //  All functions ---------------------------------------
 
 function getPasswordCap() {
-  finalPassword.push(capitalLetters[Math.floor(Math.random() * capitalLetters.length)]);
+  if (upperLetters) {
+    finalPassword.push(capitalLetters[Math.floor(Math.random() * capitalLetters.length)]);
+  } else {
+    capitalLetters.splice(0, 26)
+  }
+
 }
 function getPasswordLow() {
-  finalPassword.push(lowerCaseLetters[Math.floor(Math.random() * lowerCaseLetters.length)]);
+  if (lowerLetters) {
+    finalPassword.push(lowerCaseLetters[Math.floor(Math.random() * lowerCaseLetters.length)]);
+  } else {
+    lowerCaseLetters.splice(0, 26)
+  }
 }
 function getPasswordNum() {
-  finalPassword.push(numbers[Math.floor(Math.random() * numbers.length)]);
+  if (numbers1) {
+    finalPassword.push(numbers[Math.floor(Math.random() * numbers.length)]);
+  } else {
+    numbers.splice(0, 10)
+  }
 }
 function getPasswordSpe() {
-  finalPassword.push(specialCharacters[Math.floor(Math.random() * specialCharacters.length)]);
-}
-function getPasswordAll() {
-  finalPassword.push(totalOptions[Math.floor(Math.random() * totalOptions.length)]);
+  if (specialText) {
+    finalPassword.push(specialCharacters[Math.floor(Math.random() * specialCharacters.length)]);
+  } else { specialCharacters.splice(0, 8) }
 }
 
-console.log(totalOptions);
+console.log(finalPassword);
 // End of all Functions ------------------------------------------
 //  All if and for Statements--------------------------------
 
 for (var i = 0; i < 1; i++) {
-
-  if (upperLetters == true) {
     getPasswordCap();
-
-  } else {
-    totalOptions.splice(0, 26);
-
-  }
-}
-
-for (var i = 0; i < 1; i++) {
-
-  if (lowerLetters == true) {
-    getPasswordLow();
-
-  } else if (upperLetters == false) {
-
-    totalOptions.splice(0, 26);
-
-  } else {
-    totalOptions.splice(26, 26);
-
-  }
-}
-
-for (var i = 0; i < 1; i++) {
-
-  if (numbers1 == true) {
-    getPasswordNum();
-
-  } else if (upperLetters == false && lowerLetters == false) {
-    totalOptions.splice(0, 10);
-
-
-  } else if (upperLetters == true && lowerLetters == false || upperLetters == false && lowerLetters == true) {
-    totalOptions.splice(26, 10);
-  } else if (upperLetters == true && lowerLetters == true && numbers1 == false) {
-    totalOptions.splice(52, 10);
-
-  }
-}
-
-for (var i = 0; i < 1; i++) {
-
-  if (specialText == true) {
     getPasswordSpe();
-
-  } else if (upperLetters == true && lowerLetters == false && numbers1 == false && specialText == false) {
-    totalOptions.splice(26, 8);
-
-  } else if (upperLetters == true && lowerLetters == true && numbers1 == true && specialText == false) {
-
-    totalOptions.splice(62, 8)
-  }
-  else if (upperLetters == true && lowerLetters == true && numbers1 == false && specialText == false) {
-
-    totalOptions.splice(52, 10);
-  }
-  else if (upperLetters == false && lowerLetters == false && numbers1 == true && specialText == false) {
-
-    totalOptions.splice(10, 8);
- 
-  } else if (upperLetters == false && lowerLetters == true && numbers1 == true && specialText == false) {
-
-    totalOptions.splice(36, 8);
-
-  }
-
+    getPasswordNum();
+    getPasswordLow();
 }
+// End of all if and for statments ----------------------------
+
+// Filling int the rest of the password slots based on the length of password selected
+var totalOptions = capitalLetters.concat(lowerCaseLetters, numbers, specialCharacters);
 
 for (var i = finalPassword.length; i < length; i++) {
   finalPassword.push(totalOptions[Math.floor(Math.random() * totalOptions.length)]);
 
 }
 
-// End of all if and for statments ----------------------------
 
-// Joing multi string randomized password into one strin --------
+
+// Joining  multi string randomized password into one string --------
 
 var newPassword = finalPassword.join("");
 
